@@ -39,7 +39,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.txtNome = new System.Windows.Forms.TextBox();
-            this.dataNascimento = new System.Windows.Forms.DateTimePicker();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtCPF = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -56,18 +55,19 @@
             this.label13 = new System.Windows.Forms.Label();
             this.txtComplemento = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgwTabela = new System.Windows.Forms.DataGridView();
             this.btnCadastrarTelefone = new System.Windows.Forms.Button();
+            this.dgwTelefone = new System.Windows.Forms.DataGridView();
             this.btnInserir = new System.Windows.Forms.Button();
             this.btnDeletar = new System.Windows.Forms.Button();
             this.btnAtualizar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgwTabela = new System.Windows.Forms.DataGridView();
+            this.txtData = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwTabela)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwTelefone)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwTabela)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -167,13 +167,6 @@
             this.txtNome.Size = new System.Drawing.Size(413, 22);
             this.txtNome.TabIndex = 10;
             // 
-            // dataNascimento
-            // 
-            this.dataNascimento.Location = new System.Drawing.Point(163, 99);
-            this.dataNascimento.Name = "dataNascimento";
-            this.dataNascimento.Size = new System.Drawing.Size(340, 22);
-            this.dataNascimento.TabIndex = 11;
-            // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(77, 135);
@@ -200,6 +193,7 @@
             // rbMasculino
             // 
             this.rbMasculino.AutoSize = true;
+            this.rbMasculino.Checked = true;
             this.rbMasculino.Location = new System.Drawing.Point(325, 172);
             this.rbMasculino.Name = "rbMasculino";
             this.rbMasculino.Size = new System.Drawing.Size(89, 20);
@@ -234,10 +228,10 @@
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(130, 22);
             this.txtCEP.TabIndex = 18;
+            this.txtCEP.TextChanged += new System.EventHandler(this.txtCEP_TextChanged);
             // 
             // txtLogradouro
             // 
-            this.txtLogradouro.Enabled = false;
             this.txtLogradouro.Location = new System.Drawing.Point(110, 245);
             this.txtLogradouro.Name = "txtLogradouro";
             this.txtLogradouro.Size = new System.Drawing.Size(393, 22);
@@ -245,7 +239,6 @@
             // 
             // txtBairro
             // 
-            this.txtBairro.Enabled = false;
             this.txtBairro.Location = new System.Drawing.Point(78, 280);
             this.txtBairro.Name = "txtBairro";
             this.txtBairro.Size = new System.Drawing.Size(153, 22);
@@ -253,7 +246,6 @@
             // 
             // txtCidade
             // 
-            this.txtCidade.Enabled = false;
             this.txtCidade.Location = new System.Drawing.Point(289, 280);
             this.txtCidade.Name = "txtCidade";
             this.txtCidade.Size = new System.Drawing.Size(214, 22);
@@ -261,8 +253,35 @@
             // 
             // cbUF
             // 
-            this.cbUF.Enabled = false;
             this.cbUF.FormattingEnabled = true;
+            this.cbUF.Items.AddRange(new object[] {
+            "RO",
+            "AC",
+            "AM",
+            "RR",
+            "PA",
+            "AP",
+            "TO",
+            "MA",
+            "PI",
+            "CE",
+            "RN",
+            "PB",
+            "PE",
+            "AL",
+            "SE",
+            "BA",
+            "MG",
+            "ES",
+            "RJ",
+            "SP",
+            "PR",
+            "SC",
+            "RS",
+            "MS",
+            "MT",
+            "GO",
+            "DF"});
             this.cbUF.Location = new System.Drawing.Point(311, 320);
             this.cbUF.Name = "cbUF";
             this.cbUF.Size = new System.Drawing.Size(65, 24);
@@ -303,23 +322,13 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnCadastrarTelefone);
-            this.groupBox1.Controls.Add(this.dgwTabela);
+            this.groupBox1.Controls.Add(this.dgwTelefone);
             this.groupBox1.Location = new System.Drawing.Point(530, 27);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(486, 304);
             this.groupBox1.TabIndex = 28;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Telefones";
-            // 
-            // dgwTabela
-            // 
-            this.dgwTabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwTabela.Location = new System.Drawing.Point(17, 34);
-            this.dgwTabela.Name = "dgwTabela";
-            this.dgwTabela.RowHeadersWidth = 51;
-            this.dgwTabela.RowTemplate.Height = 24;
-            this.dgwTabela.Size = new System.Drawing.Size(450, 187);
-            this.dgwTabela.TabIndex = 0;
             // 
             // btnCadastrarTelefone
             // 
@@ -331,18 +340,29 @@
             this.btnCadastrarTelefone.UseVisualStyleBackColor = true;
             this.btnCadastrarTelefone.Click += new System.EventHandler(this.btnCadastrarTelefone_Click);
             // 
+            // dgwTelefone
+            // 
+            this.dgwTelefone.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwTelefone.Location = new System.Drawing.Point(17, 34);
+            this.dgwTelefone.Name = "dgwTelefone";
+            this.dgwTelefone.RowHeadersWidth = 51;
+            this.dgwTelefone.RowTemplate.Height = 24;
+            this.dgwTelefone.Size = new System.Drawing.Size(450, 187);
+            this.dgwTelefone.TabIndex = 0;
+            // 
             // btnInserir
             // 
-            this.btnInserir.Location = new System.Drawing.Point(21, 406);
+            this.btnInserir.Location = new System.Drawing.Point(68, 417);
             this.btnInserir.Name = "btnInserir";
             this.btnInserir.Size = new System.Drawing.Size(130, 35);
             this.btnInserir.TabIndex = 29;
             this.btnInserir.Text = "INSERIR";
             this.btnInserir.UseVisualStyleBackColor = true;
+            this.btnInserir.Click += new System.EventHandler(this.btnInserir_Click);
             // 
             // btnDeletar
             // 
-            this.btnDeletar.Location = new System.Drawing.Point(167, 407);
+            this.btnDeletar.Location = new System.Drawing.Point(214, 418);
             this.btnDeletar.Name = "btnDeletar";
             this.btnDeletar.Size = new System.Drawing.Size(130, 35);
             this.btnDeletar.TabIndex = 29;
@@ -351,7 +371,7 @@
             // 
             // btnAtualizar
             // 
-            this.btnAtualizar.Location = new System.Drawing.Point(311, 406);
+            this.btnAtualizar.Location = new System.Drawing.Point(358, 417);
             this.btnAtualizar.Name = "btnAtualizar";
             this.btnAtualizar.Size = new System.Drawing.Size(130, 35);
             this.btnAtualizar.TabIndex = 29;
@@ -375,22 +395,31 @@
             this.txtPesquisa.Size = new System.Drawing.Size(373, 22);
             this.txtPesquisa.TabIndex = 0;
             // 
-            // dataGridView1
+            // dgwTabela
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(40, 491);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(957, 190);
-            this.dataGridView1.TabIndex = 31;
+            this.dgwTabela.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwTabela.Location = new System.Drawing.Point(40, 491);
+            this.dgwTabela.Name = "dgwTabela";
+            this.dgwTabela.RowHeadersWidth = 51;
+            this.dgwTabela.RowTemplate.Height = 24;
+            this.dgwTabela.Size = new System.Drawing.Size(957, 190);
+            this.dgwTabela.TabIndex = 31;
+            this.dgwTabela.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwTabela_CellDoubleClick);
+            // 
+            // txtData
+            // 
+            this.txtData.Location = new System.Drawing.Point(157, 102);
+            this.txtData.Name = "txtData";
+            this.txtData.Size = new System.Drawing.Size(100, 22);
+            this.txtData.TabIndex = 32;
             // 
             // Contatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1028, 736);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.txtData);
+            this.Controls.Add(this.dgwTabela);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnAtualizar);
             this.Controls.Add(this.btnDeletar);
@@ -411,7 +440,6 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtCPF);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.dataNascimento);
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label9);
@@ -427,10 +455,10 @@
             this.Name = "Contatos";
             this.Text = "Contatos";
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgwTabela)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwTelefone)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwTabela)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -449,7 +477,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtID;
         private System.Windows.Forms.TextBox txtNome;
-        private System.Windows.Forms.DateTimePicker dataNascimento;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtCPF;
         private System.Windows.Forms.Label label10;
@@ -466,13 +493,14 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtComplemento;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dgwTabela;
+        private System.Windows.Forms.DataGridView dgwTelefone;
         private System.Windows.Forms.Button btnCadastrarTelefone;
         private System.Windows.Forms.Button btnInserir;
         private System.Windows.Forms.Button btnDeletar;
         private System.Windows.Forms.Button btnAtualizar;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtPesquisa;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgwTabela;
+        private System.Windows.Forms.TextBox txtData;
     }
 }

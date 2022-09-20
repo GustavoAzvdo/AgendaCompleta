@@ -36,10 +36,10 @@
             this.contasÀPagarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contasÀReceberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pesquisaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.telefoneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calculadoraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ajudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.telefoneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,6 +80,7 @@
             this.agendaToolStripMenuItem.Name = "agendaToolStripMenuItem";
             this.agendaToolStripMenuItem.Size = new System.Drawing.Size(75, 24);
             this.agendaToolStripMenuItem.Text = "Agenda";
+            this.agendaToolStripMenuItem.Click += new System.EventHandler(this.agendaToolStripMenuItem_Click);
             // 
             // controleDeContasToolStripMenuItem
             // 
@@ -93,13 +94,13 @@
             // contasÀPagarToolStripMenuItem
             // 
             this.contasÀPagarToolStripMenuItem.Name = "contasÀPagarToolStripMenuItem";
-            this.contasÀPagarToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.contasÀPagarToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.contasÀPagarToolStripMenuItem.Text = "Contas à pagar";
             // 
             // contasÀReceberToolStripMenuItem
             // 
             this.contasÀReceberToolStripMenuItem.Name = "contasÀReceberToolStripMenuItem";
-            this.contasÀReceberToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.contasÀReceberToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.contasÀReceberToolStripMenuItem.Text = "Contas à receber";
             // 
             // pesquisaToolStripMenuItem
@@ -109,6 +110,12 @@
             this.pesquisaToolStripMenuItem.Name = "pesquisaToolStripMenuItem";
             this.pesquisaToolStripMenuItem.Size = new System.Drawing.Size(79, 24);
             this.pesquisaToolStripMenuItem.Text = "Pesquisa";
+            // 
+            // telefoneToolStripMenuItem
+            // 
+            this.telefoneToolStripMenuItem.Name = "telefoneToolStripMenuItem";
+            this.telefoneToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.telefoneToolStripMenuItem.Text = "Telefone";
             // 
             // calculadoraToolStripMenuItem
             // 
@@ -127,12 +134,6 @@
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
             this.sairToolStripMenuItem.Size = new System.Drawing.Size(48, 24);
             this.sairToolStripMenuItem.Text = "Sair";
-            // 
-            // telefoneToolStripMenuItem
-            // 
-            this.telefoneToolStripMenuItem.Name = "telefoneToolStripMenuItem";
-            this.telefoneToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.telefoneToolStripMenuItem.Text = "Telefone";
             // 
             // Menu
             // 
